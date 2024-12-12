@@ -75,6 +75,12 @@ Make the scripts executable:
 
 If Server running Jenkins and already using **port 8080** , edit Tomcat config file and change **connector port**  from the default **8080** to **8081**. 
 
+`<Connector port="8081" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443" /> `
+
+
+
     - sudo vi /opt/tomcat/conf/server.xml 
 
 Save and Exit
