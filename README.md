@@ -103,6 +103,10 @@ Restart Tomcat
 Tomcat will auto unpack the **.war** file into a directory with the same name. 
 
 
+Access Application on Browser with **http://<server-ip>:8081/JJtechBatchApp/welcome**
+
+
+
 
 
 
