@@ -87,7 +87,7 @@ Start Tomcat
     - /opt/tomcat/bin/startup.sh
 
 
-Access Tomcat on **http://`<server-ip>`:8081** 
+Access Tomcat on **http://`<server-ip>`:`<tomcat-port>`** 
 
 
 # Access the Simple WebApp
@@ -105,6 +105,26 @@ Tomcat will auto unpack the **.war** file into a directory with the same name.
 
 
 Access Application on Browser with **http://`<server-ip>`:8081/JJtechBatchApp/welcome**
+
+
+
+# Test a New Build 
+
+You can modify the Java App source code and test a new build. Edit the **`*.java` source code** with new text. 
+
+In the directory with the pom.xml file, perform a build 
+
+    - mvn clean package 
+
+Copy new **build artifact `.war` file** into the Tomcat's webapps directory
+
+    - sudo cp target/JJtechBatchApp.war /opt/tomcat/webapps/
+
+Restart the Tomcat server 
+
+    - /opt/tomcat/bin/startup.sh
+
+Refresh browser to see new application. 
 
 
 
