@@ -39,7 +39,71 @@ The **src/main/java** directory contains the project source code, the **src/test
 
     - mvn archetype:generate -DgroupId=com.jjtech -DartifactId=JJtechBatchApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 
-The above command will generate a standard maven project template for a simple Web application. Edit folder structure to achieve the desired java structure and required files. 
+The above command will generate a standard maven project template for a simple Web Application. Edit folder structure to achieve the desired java structure and add required java source code files. 
+
+
+## Build WebApp Artifacts 
+
+In the directory with teh pom.xml config file. Build the java Application  using:
+
+    - mvn clean package 
+
+This builds the **.War** java artifact that can be deployed on a web server like [Tomca](https://tomcat.apache.org/download-90.cgi). 
+
+
+# Install Tomcat on Jenkins Server to Serve Java WebApp. 
+
+Download Tomcat v9.0.98 
+
+    -  wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.98/bin/apache-tomcat-9.0.98.tar.gz
+
+Unzip the downloaded **.tar.gz ** zip file 
+
+    - tar -xvzf apache-tomcat-9.0.98.tar.gz 
+
+Move the extracted  binaries to desired Tomcat location
+
+    -  sudo mv apache-tomcat-9.0.98 /opt/tomcat
+
+Assign ownership of the directory 
+
+    - sudo chown -R $USER:$USER /opt/tomcat
+
+Make the scripts executable:
+
+    - chmod +x /opt/tomcat/bin/*.sh
+
+If Server running Jenkins and already using **port 8080** , edit Tomcat config file and change **connector port** to **8081**. 
+
+    - sudo vi /opt/tomcat/conf/server.xml 
+
+Save and Exit
+
+    - :wq!
+
+Start Tomcat 
+
+    - /opt/tomcat/bin/startup.sh
+
+
+Access Tomcat on **http://<server-ip>:8081** 
+
+
+# Access the Simple WebApp
+
+Copy the **.war** file to Tomcat's **webapps** directory 
+
+    - sudo cp target/JJtechBatchApp.war /opt/tomcat/webapps/
+
+Restart Tomcat 
+
+    - /opt/tomcat/bin/shutdown.sh
+    - /opt/tomcat/bin/startup.sh
+
+Tomcat will auto unpack the **.war** file into a directory with the same name. 
+
+
+
 
 
 
