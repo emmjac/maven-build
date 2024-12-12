@@ -86,7 +86,7 @@ Start Tomcat
     - /opt/tomcat/bin/startup.sh
 
 
-Access Tomcat on **http://<server-ip>:8081** 
+Access Tomcat on **http://`<server-ip>`:8081** 
 
 
 # Access the Simple WebApp
@@ -103,7 +103,7 @@ Restart Tomcat
 Tomcat will auto unpack the **.war** file into a directory with the same name. 
 
 
-Access Application on Browser with **http://<server-ip>:8081/JJtechBatchApp/welcome**
+Access Application on Browser with **http://`<server-ip>`:8081/JJtechBatchApp/welcome**
 
 
 
