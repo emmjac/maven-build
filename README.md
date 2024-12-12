@@ -29,8 +29,8 @@ type tree command to see the standard folder structure of  a maven project. If n
 
 This should display the folder struture
 
-             ![alt text](image.png)
-             
+![alt text](image.png)
+
 The **src/main/java** directory contains the project source code, the **src/test/java** directory contains the test source, and the **pom.xml** file is the project's Project Object Model, or POM.
 
 
