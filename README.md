@@ -34,11 +34,13 @@ This should display the folder struture
 The **src/main/java** directory contains the project source code, the **src/test/java** directory contains the test source, and the **pom.xml** file is the project's Project Object Model, or POM.
 
 
-## 2 Generate a Web (WAR) Project 
+## 2 Generate a Web App (WAR) Project 
  Run the below command to generate a Web App project
 
     - mvn archetype:generate -DgroupId=com.jjtech -DartifactId=JJtechBatchApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
 
-The above command will generate a standard maven project template for a simple Web application 
+The above command will generate a standard maven project template for a simple Web application. Edit folder structure to achieve the desired java structure and required files. 
+
+
 
     
