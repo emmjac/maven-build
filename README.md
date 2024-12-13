@@ -166,7 +166,7 @@ Follow the instructions in the Tomcat directory to setup a tomcat webserver.
 
 
 
-## Continuous Integration: SetUp a Maven Build Jobs using Jenkins (Generate Artifacts)
+## CI: SetUp a Maven Build Jobs using Jenkins (Generate Artifacts)
 
 
 ### In jenkins, install the **Maven Integration** plugin if not already installed 
@@ -193,12 +193,12 @@ In the Jenkins Dashboard, select Manage Jenkins and choose Plugins. Verify if th
 
 
 
-## Continuous Deployment: Deploy your Artifact to the WebServer( e.g Tomcat)
+## CD: Deploy your Artifact to the WebServer(e.g Tomcat)
 
 
 A) Add Webser credentials so that Jenkins will be able to communicate to Webserver. 
 
-- Click **Manage Jenkins**  and select **Credentials. 
+- Click **Manage Jenkins**  and select **Credentials**. 
 
 - Select **global** option and add credentials `(Kind: Username with password)` of user on the **Tomcat** webserver. Jenkins job will use this creds to communicate with Tomcat. 
 
