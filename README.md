@@ -70,7 +70,7 @@ Assign ownership of the directory
 
     sudo chown -R $USER:$USER /opt/tomcat
 
-Make the scripts executable:
+Make the oscripts executable:
 
     chmod +x /opt/tomcat/bin/*.sh
 
@@ -150,6 +150,93 @@ NB: Because this changes the expected output of the test case, ensure to **updat
         verify(response).setContentType("text/html");
         assertEquals("<h1>Welcome to JJtech Model Batch DevOps Maven Session testing new build artifact</h1>", responseWriter.toString().trim());
     }
+
+
+
+After updating you can test the new version of the application as shown above. 
+
+
+
+# Orchestrate Building (CI) and Deployment (CD) Steps using Jenkins and and Tomcat Server.
+
+
+Follow the instructions in the Tomcat directory to setup a tomcat webserver.
+
+
+
+## Continuous Integration: SetUp a Maven Build Jobs using Jenkins (Generate Artifacts)
+
+
+### In jenkins, install the **Maven Integration** plugin if not already installed 
+
+In the Jenkins Dashboard, select Manage Jenkins and choose Plugins. Verify if the plugin is already installed. If not installed, install the plugin 
+
+### Create a maven Job
+
+1. Select on New Item, and create a new Job using the (installed) **Maven Project**
+
+2. Under **Source Code Management**, configure your Git repository with the maven project
+
+3. (Optional) Under **Build Triggers**, in addition to the default configure **Poll SCM** 
+
+4. Under **Build**, add relative path to **pom.xml** file in the repository. 
+
+    For **Goals and Options** 
+
+    `clean install package`
+
+5. Apply and Save the Pipeline Configure. Trigger the pipeline to build and Artifact, **`.Jar`** file
+
+6. Install the Maven dependency. 
+
+
+
+## Continuous Deploymentn: Deploy your Artifact to the WebServer( e.g Tomcat)
+
+
+A) Add Webser credentials so that Jenkins will be able to communicate to Webserver. 
+
+- Click **Manage Jenkins**  and select **Credentials. 
+
+- Select **global** option and add credentials `(Kind: Username with password)` of user on the **Tomcat** webserver. Jenkins job will use this creds to communicate with Tomcat. 
+
+
+
+
+Configure **Post Build Actions** in the Job created above.
+
+In order to deploy the artifact generate, install the **Deploy to Container** Jenkins plugin.
+With this plugin comes additional features. 
+
+In the Post build drop menu, select and configure the action **Deploy war/ear to container**. 
+
+1. for WAR/EAR files, enter 
+    **/*.war
+
+2. Leave `context path` and jenkins is able to auto fill the context from the workspace. 
+
+3. For Add Container, select the version of the Tomcat server. here `Tomcat 9.x Remote`
+
+4. Add Credentials. 
+    select the credential added above
+
+5. Add URL to your Tomcat server **http://`<server-pub-ip>`:8080**. Tomcat uses default port 8080. 
+
+6. `Apply`, `Save` and `trigger` build.  Jenkins should be able to build and deploy artifacts to the server. 
+
+7. Access application on webser via **http://`<server-pub-ip>`:8080/JJtechBatchApp/welcome**. 
+
+8. Make src code changes. and 
+    git add
+    git commit
+    git push
+
+with **Poll SCM** configured, you should have a complete cicd end to end. 
+
+
+
+ 
+
 
 
 
