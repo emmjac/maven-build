@@ -132,7 +132,6 @@ Refresh browser to see new application.
 
 Edit the html content of the Java Servelet file. 
 
-    ```
     public class WelcomeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -143,18 +142,14 @@ Edit the html content of the Java Servelet file.
     }}
    
 
-    ```
-
 NB: Because this changes the expected output of the test case, ensure to **update the expected test output** to ensure the Unit Test does not fail. 
 
-    ```
     @Test
     public void testDoGet() throws Exception {
         welcomeServlet.doGet(request, response);
         verify(response).setContentType("text/html");
         assertEquals("<h1>Welcome to JJtech Model Batch DevOps Maven Session testing new build artifact</h1>", responseWriter.toString().trim());
     }
-    ```
 
 
 
