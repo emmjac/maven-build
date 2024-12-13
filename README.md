@@ -230,12 +230,14 @@ In the Post build drop menu, select and configure the action **Deploy war/ear to
 7. Access application on webser via **http://`<server-pub-ip>`:8080/JJtechBatchApp/welcome**. 
 
 8. Make src code changes. and 
+
     git add . 
+
     git commit
+
     git push
 
 With **Poll SCM** configured, you should have a complete cicd end to end. 
-
 
 
  
