@@ -2,9 +2,9 @@
 
 #   Tomcat installation on EC2 instance
 
-## Prerequisit
+## Prerequisite
 
-### Install Java on an ec2 server. 
+### Install Java on an Ubuntu ec2 server. 
 
         sudo apt update
 
